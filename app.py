@@ -15,15 +15,15 @@ from shiny import *
 # TODO: Change the shinyswatch theme to morph, cosmo, darkly, flatly, sketchy (or other shinyswatch theme)
 # Preview at https://bootswatch.com/
 app_ui = ui.page_navbar(
-    shinyswatch.theme.minty(),
+    shinyswatch.theme.superhero(),
     ui.nav(
         "Home",
         ui.layout_sidebar(
             ui.panel_sidebar(
                 ui.h2("Sidebar Panel"),
                 ui.tags.hr(),
-                ui.h3("User Interaction Here"),
-                ui.input_text("name_input", "Tell me your name", placeholder="Your Name"),
+                ui.h3("Let's get to know you!"),
+                ui.input_text("name_input", "What is your name?", placeholder="Your Name"),
                 ui.input_text("language_input", "What are your favorite language(s)?", placeholder="Favorite Programming Language(s)"),
                 ui.tags.hr(),
             ),
@@ -62,7 +62,7 @@ def server(input, output, session):
     @render.text
     def welcome_output():
         user = input.name_input();
-        welcome_string = f'Hello {user}!';
+        welcome_string = f'Hi {user}, welcome!';
         return welcome_string
 
     @output
